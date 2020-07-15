@@ -131,6 +131,8 @@ void programCore()
 	}
 }
 
+
+
 int main()
 {
 	//defaultCharacterFileDir = "C:/Users/LIAMF/Documents/C++ Projects/Learning C++/Character Files/" ;
@@ -144,6 +146,7 @@ int main()
 	liam.printCharacterDetails();
 	*/
 	//readStructFromFile();
+	
 	programCore();
 
 	
