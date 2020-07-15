@@ -81,7 +81,14 @@ void writeFile(string fileName)
 	else std::cout << "Unable to open file!\n";
 }
 
-
+void enterNewDirectory()
+{
+	std::cout << "Enter a new directory: ";//keep cin.ignore() and cin.get() away from this little section XD
+	string newDir{};
+	getline(std::cin, newDir);
+	std::cout << newDir << "\n";
+	createDirectory(newDir);
+}
 
 void programCore()
 {
@@ -112,11 +119,7 @@ void programCore()
 		writeFile(fileUsed); //calls the "writeFile" function, passing the "fileName" variable
 	}
 
-	std::cout << "Enter a new directory: ";//keep cin.ignore() and cin.get() away from this little section XD
-	string newDir{};
-	getline(std::cin, newDir);
-	std::cout << newDir;
-	createDirectory(newDir);
+	enterNewDirectory();
 
 	cout << "Exit program? (Y/N) ";
 	string exitAnswer{}; //stores the value for the users choice on whether to exit the program or not.
@@ -132,16 +135,16 @@ int main()
 {
 	//defaultCharacterFileDir = "C:/Users/LIAMF/Documents/C++ Projects/Learning C++/Character Files/" ;
 	//createStruct();
-	TestCharacter liam;
-	liam.loadCharacterDetails();
-	liam.printCharacterDetails();
+	//TestCharacter liam;
+	//liam.loadCharacterDetails();
+	//liam.printCharacterDetails();
 	/*
 	liam.fillCharacterDetails();
 	liam.saveCharacterDetails();
 	liam.printCharacterDetails();
 	*/
 	//readStructFromFile();
-	//programCore();
+	programCore();
 
 	
 	std::cin.get();

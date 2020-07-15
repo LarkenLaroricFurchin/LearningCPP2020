@@ -23,32 +23,42 @@ std::string getTime()
 
 void createDirectory(std::string desiredDirectory)
 {
-	try
+	if (fs::exists(desiredDirectory))
 	{
-		fs::create_directory(desiredDirectory);
-
-
-		if (fs::exists(desiredDirectory))
+		std::cout << "Directory already exists!\n";
+	}
+	else
+	{
+		try
 		{
-			std::cout << "Directory created succesfully at: " << desiredDirectory << std::endl;
+
+
+			fs::create_directory(desiredDirectory);
+
+
+			if (fs::exists(desiredDirectory))
+			{
+				std::cout << "Directory created succesfully at: " << desiredDirectory << std::endl;
+			}
+			else
+			{
+				std::cout << "Error! Directory creation failed!\n";
+			}
 		}
-		else
+		catch (const std::exception& e) //passing the exception by reference to "e"
 		{
-			std::cout << "Error! Directory creation failed!\n";
+
+			std::cout << "Error!![ " << e.what() << " ]Restarting program!\n"; //prints the error to the console for the user to see
+
+			std::ofstream exceptionFile("C:/Users/LIAMF/Documents/C++ Projects/Learning C++/Log/Exceptions.txt", std::ios::app); //opening the "exceptionFile" file for writing
+
+			std::string finalTime{ getTime() };
+
+			exceptionFile << "Error!![ " << e.what() << " ]Restarting program! [" << finalTime << "]\n"; //writes the error message to the opened file
+
+			exceptionFile.close(); //closes the file
 		}
 	}
-	catch (const std::exception& e) //passing the exception by reference to "e"
-	{
-		
-		std::cout << "Error!![ " << e.what() << " ]Restarting program!\n"; //prints the error to the console for the user to see
-
-		std::ofstream exceptionFile("C:/Users/LIAMF/Documents/C++ Projects/Learning C++/Log/Exceptions.txt", std::ios::app); //opening the "exceptionFile" file for writing
-		
-		std::string finalTime{ getTime() };
-
-		exceptionFile << "Error!![ " << e.what() << " ]Restarting program! [" << finalTime << "]\n"; //writes the error message to the opened file
-
-		exceptionFile.close(); //closes the file
-	}
+	
 	
 }
