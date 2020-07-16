@@ -3,6 +3,7 @@
 #include <string>
 #include "createDirectories.h"
 #include "structs.h"
+#include "arrays.h"
 using namespace std;
 
 
@@ -147,7 +148,9 @@ int main()
 	*/
 	//readStructFromFile();
 	
-	programCore();
+	//programCore();
+
+	createCharacters();
 
 	
 	std::cin.get();
