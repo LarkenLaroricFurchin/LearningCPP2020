@@ -3,6 +3,7 @@
 #include <string>
 #include "createDirectories.h"
 #include "structs.h"
+#include "arrays.h"
 using namespace std;
 
 
@@ -131,6 +132,8 @@ void programCore()
 	}
 }
 
+
+
 int main()
 {
 	//defaultCharacterFileDir = "C:/Users/LIAMF/Documents/C++ Projects/Learning C++/Character Files/" ;
@@ -144,7 +147,10 @@ int main()
 	liam.printCharacterDetails();
 	*/
 	//readStructFromFile();
-	programCore();
+	
+	//programCore();
+
+	createCharacters();
 
 	
 	std::cin.get();

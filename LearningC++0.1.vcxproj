@@ -159,12 +159,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="arrays.cpp" />
     <ClCompile Include="creatingDirectories.cpp" />
     <ClCompile Include="LearningC++0.1.cpp" />
+    <ClCompile Include="strings.cpp" />
     <ClCompile Include="structs.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="arrays.h" />
     <ClInclude Include="createDirectories.h" />
+    <ClInclude Include="strings.h" />
     <ClInclude Include="structs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
