@@ -30,6 +30,15 @@
     <ClCompile Include="strings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="characterOperations.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="getTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="logsAndExceptions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="createDirectories.h">
@@ -42,6 +51,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="strings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="characterOperations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="getTime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="logsAndExceptions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

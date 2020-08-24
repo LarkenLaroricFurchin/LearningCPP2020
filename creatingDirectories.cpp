@@ -1,3 +1,4 @@
+/*
 #include <filesystem>//Used to make the stuff in "createDirectory()" work
 #include <iostream> //Used for I/O operations with the console
 #include <fstream> //used for I/O operations with files
@@ -62,3 +63,4 @@ void createDirectory(std::string desiredDirectory)
 	
 	
 }
+*/

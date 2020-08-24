@@ -1,4 +1,4 @@
-#ifndef ARRAYS_H
-#define ARRAYS_H
-
+#ifndef STRINGS_H
+#define STRINGS_H
+void findWord();
 #endif

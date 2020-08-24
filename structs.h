@@ -19,7 +19,7 @@ struct TestCharacter //defines a struct called "TestCharacter" struct names star
 		std::getline(std::cin, characterName);
 
 		std::cout << "Enter the characters age: ";
-		std::string age; //A string to store the number that is still a string in
+		std::string age; //A string to store the number, that is still a string, in
 		std::getline(std::cin, age); //reads a line from the file and assigns it to "age"; i know this line will be a number, but its stored as a string!!
 		std::stringstream convertedAge(age); //Converts the string into an integer
 		convertedAge >> characterAge; //stores the converted integer in "liam.characterAge";

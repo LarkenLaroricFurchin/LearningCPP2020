@@ -1,11 +1,18 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "createDirectories.h"
-#include "structs.h"
-#include "arrays.h"
+#include <exception> //stuff for exceptions
+#include <ctime>  //used to make the stuff in "getTime()" work
+#include <chrono> //used to make the stuff in "getTime()" work
+//#include "createDirectories.h"
+//#include "structs.h"
+//#include "arrays.h"
+//#include "strings.h"
+#include "getTime.h"
+#include "characterOperations.h"
 using namespace std;
 
+/*
 
 bool getUserInput() //used to ask the user if they want to use the default directory, or a custom one
 {
@@ -133,9 +140,31 @@ void programCore()
 }
 
 
-
+*/
 int main()
 {
+	try
+	{
+		std::cout << "Create new character or load character? ";
+
+		CharacterOperations playerCharacter;
+		playerCharacter.characterCreation();
+
+		//std::cin.get();
+	}
+	catch (const std::exception& e) //passing the exception by reference to "e"
+	{
+
+		std::cout << "Error!![ " << e.what() << " ]Restarting program!\n"; //prints the error to the console for the user to see
+
+		std::ofstream exceptionFile("C:/Users/LIAMF/Documents/C++ Projects/Learning C++/Log/Exceptions.txt", std::ios::app); //opening the "exceptionFile" file for writing
+
+		std::string finalTime{ getTime() };
+
+		exceptionFile << "Error!![ " << e.what() << " ]Restarting program! [" << finalTime << "]\n"; //writes the error message to the opened file
+
+		exceptionFile.close(); //closes the file
+	}
 	//defaultCharacterFileDir = "C:/Users/LIAMF/Documents/C++ Projects/Learning C++/Character Files/" ;
 	//createStruct();
 	//TestCharacter liam;
@@ -150,9 +179,7 @@ int main()
 	
 	//programCore();
 
-	createCharacters();
-
+	//createCharacters();
 	
-	std::cin.get();
 	return 0;
 }

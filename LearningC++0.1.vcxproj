@@ -160,14 +160,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="arrays.cpp" />
+    <ClCompile Include="characterOperations.cpp" />
     <ClCompile Include="creatingDirectories.cpp" />
+    <ClCompile Include="getTime.cpp" />
     <ClCompile Include="LearningC++0.1.cpp" />
+    <ClCompile Include="logsAndExceptions.cpp" />
     <ClCompile Include="strings.cpp" />
     <ClCompile Include="structs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrays.h" />
+    <ClInclude Include="characterOperations.h" />
     <ClInclude Include="createDirectories.h" />
+    <ClInclude Include="getTime.h" />
+    <ClInclude Include="logsAndExceptions.h" />
     <ClInclude Include="strings.h" />
     <ClInclude Include="structs.h" />
   </ItemGroup>
