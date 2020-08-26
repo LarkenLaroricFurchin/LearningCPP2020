@@ -10,6 +10,7 @@
 //#include "strings.h"
 #include "getTime.h"
 #include "characterOperations.h"
+#include "LearningC++0.1.h"
 using namespace std;
 
 /*
@@ -141,14 +142,30 @@ void programCore()
 
 
 */
+
+
+
 int main()
 {
 	try
 	{
+		 //creates a new instance of CharacterOperations to store the current users character details in
 		std::cout << "Create new character or load character? ";
+		std::string userAnswer;
+		std::getline(std::cin, userAnswer);
 
-		CharacterOperations playerCharacter;
-		playerCharacter.characterCreation();
+		if (userAnswer == "new" || userAnswer == "New") //decides whether to call the character creation function or the load character function based on previous user input
+		{
+			playerCharacter.characterCreation();
+		}
+		else if (userAnswer == "load" || userAnswer == "Load")
+		{
+			std::cout << "What is the characters name? ";
+			std::getline(std::cin, userAnswer);
+			playerCharacter.characterName = userAnswer;
+			playerCharacter.loadCharacterDetails();
+		}
+
 
 		//std::cin.get();
 	}

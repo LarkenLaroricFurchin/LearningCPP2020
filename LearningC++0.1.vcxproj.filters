@@ -39,6 +39,9 @@
     <ClCompile Include="logsAndExceptions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="itemHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="createDirectories.h">
@@ -60,6 +63,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="logsAndExceptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LearningC++0.1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="itemHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

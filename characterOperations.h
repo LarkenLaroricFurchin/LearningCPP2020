@@ -7,19 +7,29 @@
 #include <ctime>  //used to make the stuff in "getTime()" work
 #include <chrono> //used to make the stuff in "getTime()" work
 
+#include "logsAndExceptions.h"
+#include "itemHandler.h"
+
 inline std::string defaultCharacterFileDir = "C:/Users/LIAMF/Documents/C++ Projects/Learning C++/Character Files/";
+
 
 
 class CharacterOperations
 {
+private:
+	int nextLevel{ 20 };
+public:
 	std::string characterName{ "Name Name" };
 	std::string characterRace{ "Race" };
 	std::string characterClass{ "Class" };
 	short characterAge{ 0 };
 	short characterLevel{ 0 };
 	int characterExperience{ 0 };
-public:
-	
+
+	Armour characterArmourHead{};
+	Armour characterArmourTorso{};
+	Armour characterArmourLegs{};
+	Armour characterArmourFeet{};
 
 	void characterCreation() //gets user input to create a new character
 	{
@@ -42,6 +52,13 @@ public:
 
 		characterLevel = 0;
 
+		characterArmourHead.itemID = 100;
+		characterArmourTorso.itemID = 101;
+		characterArmourLegs.itemID = 102;
+		characterArmourFeet.itemID = 103;
+
+		writeLog("Character Created");
+
 		saveCharacterDetails();
 	}
 
@@ -51,17 +68,40 @@ public:
 
 
 		std::ofstream characterFile(characterDirectory);
+		writeLog("Character File Opened");
 
-		characterFile << characterName << "\n" << characterRace << "\n" << characterClass << "\n" << characterAge << "\n" << characterLevel << "\n" << characterExperience;
+		characterFile << characterName << "\n" << characterRace << "\n" << characterClass << "\n" << characterAge << "\n" << characterLevel << "\n" << characterExperience << "\n" << characterArmourHead.itemID;
 
 		characterFile.close();
+
+		writeLog("Character File Close");
+		writeLog("Character Saved");
 	}
 
 	void loadCharacterDetails()
 	{
 		std::string characterDirectory = defaultCharacterFileDir.append(characterName).append(".txt");
 
+
 		std::ifstream characterFile(characterDirectory);
+		writeLog("Character File Opened");
+
+		if (characterFile.is_open() == false)
+		{
+			std::cout << "File not found. Do you wish to create it?(Y/N): ";
+			std::string userAnswer;
+			std::getline(std::cin, userAnswer);
+
+			if (userAnswer == "yes" || userAnswer == "Yes" || userAnswer == "y" || userAnswer == "Y")
+			{
+				characterCreation();
+			}
+			else
+			{
+				std::cout << "Exiting\n";
+				return;
+			}
+		}
 
 		std::getline(characterFile, characterName);
 		std::getline(characterFile, characterRace);
@@ -82,25 +122,51 @@ public:
 		std::stringstream convertedXp(xp);
 		convertedXp >> characterExperience;
 
+		std::string headArmourID;
+		std::getline(characterFile, headArmourID);
+		std::stringstream convertedID(headArmourID);
+		convertedID >> characterArmourHead.itemID;
+
+		loadArmour(characterArmourHead);
+		loadArmour(characterArmourTorso);
+		loadArmour(characterArmourLegs);
+		loadArmour(characterArmourFeet);
+
+		writeLog("Character Loaded");
+
 		printCharacterDetails();
 
 		characterFile.close();
+		writeLog("Character File Closed");
 	}
 
 	void printCharacterDetails()
 	{
-		std::cout << characterName << "\n" << characterRace << "\n" << characterClass << "\n" << characterAge << "\n" << characterLevel << "\n" << characterExperience;
+		std::cout << "[Name] "<<characterName << "\n" << "[Race] " << characterRace << "\n" << "[Class] " << characterClass << "\n" << "[Age] " << characterAge << "\n" << "[Level] " << characterLevel << "\n" << "[XP] " << characterExperience << std::endl;;
+		std::cout << "[Head] " << characterArmourHead.armourName << "\n" << "[Torso] " << characterArmourTorso.armourName << "\n" << "[Legs] " << characterArmourLegs.armourName << "\n" << "[Feet] " << characterArmourFeet.armourName << std::endl;
+		writeLog("Character Details Printed");
 	}
 
-	void incrementCharacterXP()
+	void incrementCharacterXP(short modifier)
 	{
-
+		characterExperience += modifier * 1;
+		if (characterExperience >= nextLevel)
+		{
+			incrementCharacterLevel();
+		}
+		characterExperience += modifier * 1;
+		std::string eventToLog{"Character Experience Incremented by: "};
+		eventToLog = eventToLog.append(std::to_string(characterExperience += modifier * 1));
+		writeLog(eventToLog);
 	}
 
 	void incrementCharacterLevel()
 	{
-
+		characterLevel++;
+		writeLog("Character Level Incremented");
 	}
+
+
 };
 
 #endif

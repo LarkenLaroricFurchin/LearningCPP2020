@@ -1,7 +1,11 @@
 #ifndef LOGSANDEXCEPTIONS
 #define LOGSANDEXCEPTIONS
-class logsAndExceptions
-{
-};
+#include <string>
+#include <fstream>
+#include "getTime.h"
+
+void writeLog(std::string eventToLog);
+
+
 
 #endif

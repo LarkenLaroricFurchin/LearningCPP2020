@@ -163,6 +163,7 @@
     <ClCompile Include="characterOperations.cpp" />
     <ClCompile Include="creatingDirectories.cpp" />
     <ClCompile Include="getTime.cpp" />
+    <ClCompile Include="itemHandler.cpp" />
     <ClCompile Include="LearningC++0.1.cpp" />
     <ClCompile Include="logsAndExceptions.cpp" />
     <ClCompile Include="strings.cpp" />
@@ -173,6 +174,8 @@
     <ClInclude Include="characterOperations.h" />
     <ClInclude Include="createDirectories.h" />
     <ClInclude Include="getTime.h" />
+    <ClInclude Include="itemHandler.h" />
+    <ClInclude Include="LearningC++0.1.h" />
     <ClInclude Include="logsAndExceptions.h" />
     <ClInclude Include="strings.h" />
     <ClInclude Include="structs.h" />

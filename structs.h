@@ -8,10 +8,10 @@ inline std::string defaultCharacterFileDir = "C:/Users/LIAMF/Documents/C++ Proje
 
 struct TestCharacter //defines a struct called "TestCharacter" struct names start with a capital letter to distinguish them from variables
 {
-	std::string characterName;
-	short characterAge;
-	std::string characterRace;
-	std::string characterClass;
+	std::string characterName{ "Name Name" };
+	short characterAge{ 0 };
+	std::string characterRace{ "Race" };
+	std::string characterClass{ "Class" };
 
 	void fillCharacterDetails()
 	{
